@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CITA255_Assignment02.MainPage">
+
+    <ScrollView>
+        <Grid ColumnDefinitions="*,*" RowDefinitions="auto,auto,*,auto" RowSpacing="10" ColumnSpacing="20" Padding="20">
+            <Label Text="Gym Log" Grid.Row="0" Grid.Column="0" FontSize="30" HorizontalTextAlignment="Center"/>
+            <Label Text="Exercise" Grid.Row="1" Grid.Column="0" FontSize="20"/>
+            <Label Text="Reps" Grid.Row="1" Grid.Column="1" FontSize="20"/>
+
+            <CollectionView x:Name="ExerciseList" Grid.Row="2" Grid.Column="0">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding .}"/>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <CollectionView x:Name="RepsList" Grid.Row="2" Grid.Column="1">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding .}"/>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <VerticalStackLayout Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Spacing="10">
+                <Button Text="Press for total" Clicked="OnCalculateClicked" HorizontalOptions="Center"/>
+                <Label x:Name="TotalLabel" HorizontalTextAlignment="Center"/>
+            </VerticalStackLayout>
+
+        </Grid>
+    </ScrollView>
+
+</ContentPage>
